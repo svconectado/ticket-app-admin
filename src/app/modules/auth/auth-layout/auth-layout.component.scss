@@ -1,0 +1,28 @@
+.login {
+  &__images {
+    background-image: url('../../../../assets/images/fondo_auth.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &__title {
+    margin-top: 25%;
+    font-size: 35px;
+    font-weight: bold;
+    letter-spacing: 10px;
+  }
+
+  &__subtitle {
+    margin-top: 2rem;
+    font-size: 18px;
+    font-weight: lighter;
+    letter-spacing: 2px;
+  }
+}
+
+.terms {
+  position: fixed;
+  bottom: 10px;
+  right: 30px;
+  width: 35%;
+}
