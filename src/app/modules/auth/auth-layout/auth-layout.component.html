@@ -1,0 +1,25 @@
+<div class="container-fluid h-100">
+  <div class="row h-100">
+    <div class="min-vh-100 col-md-6 col-lg-7 d-none d-md-block login__images"></div>
+    <div class="min-vh-100 col-sm-12 col-md-6 col-lg-5">
+      <h1 class="login__title text-uppercase text-center text-primary">
+        {{title}}
+      </h1>
+      <div class="container w-75 login__form">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="fixed-bottom">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-md-6 col-lg-7 d-none d-md-block"></div>
+      <div class="col-sm-12 col-md-6 col-lg-5">
+        <div class="text-center">
+          <a class="text-primary"><small>Términos y condicionales de uso. | Políticas de privacidad.</small></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
