@@ -2,27 +2,40 @@
               [title]="header.title"></app-ui-title>
 
 
-<div class="row"> <!--Div contenedor de ambos lados-->
-  <div class="col-md-12 col-sm-12 col-lg-12"><h2 class="ml-5">Sucursales</h2></div>
-  <div class="col-sm-12 col-md-8 col-lg-8"> <!--Inicio de div sucursales-->
-    
+<div class="row">
+  <div class="col-12 d-sm-block d-lg-none">
+    <div class="card bg-secondary m-4 m-sm-5 m-md-5" >
+      <div class="card-body">
+        <h5 class="card-title text-white">{{company.name}}</h5>
+        <p class="card-text text-white">{{company.category.description}}</p>
+      </div>
+      <div class="card-footer text-center">
+        <a (click)="openModal('info-company')" class="btn btn-primary text-white">Editar Informacion</a>
+        <a (click)="openModal('info-branch')" class="btn btn-info text-white ml-3">Agregar</a>
+      </div>
+    </div>
+  </div>
+</div>
 
+<div class="row"> <!--Div contenedor de ambos lados-->
+  <div class="col-12"><h2 class="ml-5">Sucursales</h2></div>
+  <div class="col-12"> <!--Inicio de div sucursales-->
     <div class="d-flex justify-content-center flex-wrap">
-      <div *ngFor="let branch of branches" class="card bg-light m-4" style="max-width: 18rem;">
+      <div *ngFor="let branch of branches" class="card card-branch bg-light">
         <div class="card-header">{{branch.name}}</div>
         <div class="card-body">
           <h5 class="card-title">{{branch.address}}</h5>
           <p class="card-text">{{branch.department}}, {{branch.city}}</p>
         </div>
         <div class="card-footer text-center">
-          <button (click)="openModal('info-branch')" class="btn btn-primary">Editar configuracion</button>
+          <button (click)="openModal('info-branch')" class="btn btn-primary">Editar</button>
         </div>
       </div>
     </div>
   </div><!--Fin de div sucursales-->
 
   <!--Inicio de div Descripcion Empresa-->
-  <div class="col-md-4 col-lg-4 mt-2">
+  <div class="d-none d-lg-block" >
     <div class="card bg-secondary m-4" >
       <img alt="{{company.name}}" class="card-img-top" src="./assets/images/categories/{{company.category.image}}">
       <div class="card-body">

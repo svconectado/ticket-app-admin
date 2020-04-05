@@ -12,4 +12,25 @@ $success:       #3B86FF;
 
 // Add SASS theme customizations here..
 
+app-company {
+  .card-branch {
+    max-width: 16rem !important;
+    margin: 0.50rem;
+  }
 
+  // small devices
+  @media (min-width: 576px) {
+    .card-branch {
+      max-width: 18rem !important;
+      margin: 2rem;
+    }
+  }
+
+  // medium devices
+  @media (min-width: 768px) {
+    .card-branch {
+      max-width: 17rem !important;
+      margin: 1rem;
+    }
+  }
+}
