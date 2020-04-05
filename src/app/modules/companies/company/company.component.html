@@ -19,7 +19,7 @@
 
 <div class="row"> <!--Div contenedor de ambos lados-->
   <div class="col-12"><h2 class="ml-5">Sucursales</h2></div>
-  <div class="col-12"> <!--Inicio de div sucursales-->
+  <div class="col-12 col-lg-8 col-lx-8"> <!--Inicio de div sucursales-->
     <div class="d-flex justify-content-center flex-wrap">
       <div *ngFor="let branch of branches" class="card card-branch bg-light">
         <div class="card-header">{{branch.name}}</div>
@@ -35,8 +35,8 @@
   </div><!--Fin de div sucursales-->
 
   <!--Inicio de div Descripcion Empresa-->
-  <div class="d-none d-lg-block" >
-    <div class="card bg-secondary m-4" >
+  <div class="col-lg-4 d-none d-lg-block col-xl-4" >
+    <div class="card bg-secondary" >
       <img alt="{{company.name}}" class="card-img-top" src="./assets/images/categories/{{company.category.image}}">
       <div class="card-body">
         <h5 class="card-title text-white">{{company.name}}</h5>
