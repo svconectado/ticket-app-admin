@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ModalService} from '../../shared/ui/modal/modal.service';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ModalService} from '../../ui/modal/modal.service';
+import {FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-company',
@@ -29,101 +29,51 @@ export class CompanyComponent implements OnInit {
       address: 'Colonia San Benito, Calle La Revolucion. Centro Comercial San Benito',
       department: 'San Salvador',
       city: 'San Salvador',
-      phone: '76523683'
+      phone: '76523683',
+      status: 'A'
     },
     {
       name: 'Sucursal 02',
       address: 'Colonia San Benito, Calle La Revolucion. Centro Comercial San Benito',
       department: 'San Salvador',
       city: 'San Salvador',
-      phone: '76523683'
+      phone: '76523683',
+      status: 'A'
     },
     {
       name: 'Sucursal 03',
       address: 'Colonia San Benito, Calle La Revolucion. Centro Comercial San Benito',
       department: 'San Salvador',
       city: 'San Salvador',
-      phone: '76523683'
+      phone: '76523683',
+      status: 'A'
     },
     {
       name: 'Sucursal 04',
       address: 'Colonia San Benito, Calle La Revolucion. Centro Comercial San Benito',
       department: 'San Salvador',
       city: 'San Salvador',
-      phone: '76523683'
+      phone: '76523683',
+      status: 'A'
     },
     {
       name: 'Sucursal 05',
       address: 'Colonia San Benito, Calle La Revolucion. Centro Comercial San Benito',
       department: 'San Salvador',
       city: 'San Salvador',
-      phone: '76523683'
-    },
-    {
-      name: 'Sucursal 06',
-      address: 'Colonia San Benito, Calle La Revolucion. Centro Comercial San Benito',
-      department: 'San Salvador',
-      city: 'San Salvador',
-      phone: '76523683'
+      phone: '76523683',
+      status: 'A'
     }
   ];
 
-  bodyText: string;
-  public infoCompanyForm: FormGroup;
-  public infoBranchForm: FormGroup;
+  dtOptions: DataTables.Settings = {};
 
   constructor(private modalService: ModalService, private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
-    this.bodyText = 'This text can be updated in modal 1';
-    this.infoCompanyFormBuilder();
-    this.infoBranchFormBuilder();
+    this.dtOptions = {
+      pagingType: 'full_numbers'
+    };
   }
-
-  openModal(id: string) {
-    this.modalService.open(id);
-  }
-
-  closeModalInfoCompany(id: string) {
-    this.modalService.close(id);
-    this.infoCompanyFormBuilder();
-  }
-
-  closeModalInfoBranch(id: string) {
-    this.modalService.close(id);
-    this.infoBranchFormBuilder();
-  }
-
-  infoCompanyFormBuilder() {
-    this.infoCompanyForm = this.fb.group({
-      name: ['Pizza Hut', Validators.compose([Validators.required])],
-      contactName: ['Pedro', Validators.compose([Validators.required])],
-      email: ['info@pizzahut.com.sv', Validators.compose([Validators.required])],
-    });
-  }
-
-  infoBranchFormBuilder() {
-    this.infoBranchForm = this.fb.group({
-      name: ['Sucursal 06', Validators.compose([Validators.required])],
-      address: ['Colonia San Benito, Calle La Revolucion. Centro Comercial San Benito', Validators.compose([Validators.required])],
-      department: ['San Salvador', Validators.compose([Validators.required])],
-      city: ['San Salvador', Validators.compose([Validators.required])],
-      phone: ['70987665'],
-      queue: ['default', Validators.compose([Validators.required])],
-    });
-  }
-
-  submitUpdateInfoCompany() {
-    if (this.infoCompanyForm.valid) {
-      this.closeModalInfoCompany('info-company');
-    }
-  }
-
-  submitUpdateInfoBranch() {
-    if (this.infoCompanyForm.valid) {
-      this.closeModalInfoBranch('info-branch');
-    }
-  }
-
 }
