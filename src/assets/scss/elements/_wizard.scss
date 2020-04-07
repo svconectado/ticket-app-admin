@@ -1,12 +1,11 @@
 aw-wizard-navigation-bar {
-
 	&.horizontal {
 		&.large-filled-symbols {
 
-			ul{
+			ul {
 
 				&.steps-indicator {
-	
+
 					li {
 
 						a {
@@ -52,7 +51,7 @@ aw-wizard-navigation-bar {
 								color: $default-white !important;
 							}
 						}
-						
+
 						&.editing {
 
 							&:before {
@@ -68,6 +67,7 @@ aw-wizard-navigation-bar {
 					}
 				}
 			}
-		}		
+		}
 	}
-} 
+}
+

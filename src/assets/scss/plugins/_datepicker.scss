@@ -3,10 +3,17 @@
 ngb-datepicker {
     border: 1px solid $border-color !important;
     padding: 25px 20px !important;
- }
 
-ngb-datepicker .bg-light {
-    background-color: $default-white !important;
+    .bg-light {
+        background-color: $default-white !important;
+    }
+
+    .btn-light {
+        color: $default-text-color;
+        width: 36px !important;
+        height: 32px !important;
+        border-radius: 0 !important;
+    }
  }
 
 .ngb-dp-week {
@@ -20,13 +27,6 @@ ngb-datepicker .bg-light {
 
 .ngb-dp-header {
     background-color: transparent !important;
-}
-
-ngb-datepicker .btn-light {
-    color: $default-text-color;
-    width: 36px !important;
-    height: 32px !important;
-    border-radius: 0 !important;
 }
 
 .ngb-dp-day[_ngcontent-c4],
