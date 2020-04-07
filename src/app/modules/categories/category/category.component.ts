@@ -11,7 +11,7 @@ export class Category {
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styleUrls: ['./category.component.scss']
+  styleUrls: []
 })
 export class CategoryComponent implements OnInit {
 

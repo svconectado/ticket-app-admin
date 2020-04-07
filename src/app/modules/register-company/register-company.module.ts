@@ -4,7 +4,7 @@ import {RegisterComponent} from './register/register.component';
 import {RouterModule, Routes} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
 
-const Routes: Routes = [
+const routes: Routes = [
   {
     path: '',
     component: RegisterComponent
@@ -15,7 +15,7 @@ const Routes: Routes = [
   declarations: [RegisterComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(Routes),
+    RouterModule.forChild(routes),
     ReactiveFormsModule,
   ]
 })

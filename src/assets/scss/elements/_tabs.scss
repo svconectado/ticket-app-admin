@@ -25,11 +25,6 @@
 				background-color: transparent;
 				opacity: 1;
 			}
-		}
-		
-		
-		
-		> a {
 
 			&.active {
 				border: 0px;
@@ -197,11 +192,7 @@
 				background-color: transparent;
 				opacity: 1;
 			}
-		}
-		
-		
-		
-		>a {
+
 			&.active {
 				color: $default-white;
 				border-color: $default-primary;
