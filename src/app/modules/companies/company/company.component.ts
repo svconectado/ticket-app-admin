@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {ModalService} from '../../ui/modal/modal.service';
 import {FormBuilder} from '@angular/forms';
 
 @Component({
@@ -68,7 +67,7 @@ export class CompanyComponent implements OnInit {
 
   dtOptions: DataTables.Settings = {};
 
-  constructor(private modalService: ModalService, private fb: FormBuilder) {
+  constructor(private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
