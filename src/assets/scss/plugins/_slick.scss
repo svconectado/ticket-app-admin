@@ -4,7 +4,7 @@
 	@include transform(translateY(-50%));
 	
 	&:before {
-		font-family: 'themify';
+		font-family: 'themify', sans-serif;
 		font-size: 25px;
 		line-height: 1;
 		opacity: .75;
@@ -34,7 +34,7 @@
 	li {
 		button {
 			&:before {
-				font-family: 'themify';
+				font-family: 'themify', sans-serif;;
 				content: "\e724";
 				font-size: 16px;
 				opacity: 0.5;

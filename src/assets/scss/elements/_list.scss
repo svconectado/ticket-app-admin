@@ -8,14 +8,14 @@
 	
 	&.tick {
 		list-style: none;
-		padding-left: 0px;
+		padding-left: 0;
 		
 		> li {
 			padding-left: 30px;
 			
 			&:before {
 				content: "\e64c";
-				font-family: 'themify';
+				font-family: 'themify', sans-serif;
 				position: absolute;
 				left: 0;
 			}
@@ -24,14 +24,14 @@
 	
 	&.star {
 		list-style: none;
-		padding-left: 0px;
+		padding-left: 0;
 		
 		> li {
 			padding-left: 30px;
 			
 			&:before {
 				content: "\e60a";
-				font-family: 'themify';
+				font-family: 'themify',  sans-serif;
 				position: absolute;
 				left: 0;
 			}
@@ -40,7 +40,7 @@
 	
 	&.dash {
 		list-style: none;
-		padding-left: 0px;
+		padding-left: 0;
 		
 		> li {
 			padding-left: 30px;
@@ -55,14 +55,14 @@
 	
 	&.bullet {
 		list-style: none;
-		padding-left: 0px;
+		padding-left: 0;
 		
 		> li {
 			padding-left: 30px;
 			
 			&:before {
 				content: "\e724";
-				font-family: 'themify';
+				font-family: 'themify',  sans-serif;
 				position: absolute;
 				left: 0;
 			}
@@ -71,18 +71,17 @@
 	
 	&.arrow {
 		list-style: none;
-		padding-left: 0px;
+		padding-left: 0;
 		
 		> li {
 			padding-left: 30px;
 			
 			&:before {
 				content: "\e649";
-				font-family: 'themify';
+				font-family: 'themify',  sans-serif;
 				position: absolute;
 				left: 0;
 				font-size: 10px;
-				left: 0;
 				top: 4px;
 			}
 		}
@@ -173,7 +172,7 @@
 }
 
 .list-info {
-	margin-bottom: 0px;
+	margin-bottom: 0;
 	display: block;
 	position: relative;
 	padding-left: 0;
@@ -185,7 +184,7 @@
 		> a {
 			display: block;
 			position: relative;
-			padding: 12px 0px;
+			padding: 12px 0;
 			
 			&:hover,
 			&:focus {
@@ -297,10 +296,10 @@
 }
 
 .list-link {
-	margin-bottom: 0px;
+	margin-bottom: 0;
 	
 	li {
-		padding: 10px 0px;
+		padding: 10px 0;
 		
 		a {
 			color: $default-text-color;
@@ -323,7 +322,7 @@
     border-color: $border-color;
     position: absolute;
     top: 8px;
-    left: 0px;
+    left: 0;
 
     &.online,
     &.success {
