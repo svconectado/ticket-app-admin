@@ -14,7 +14,7 @@
 
 .ei {
 	display: inline-block;
-    font: normal normal normal 14px/1 exclusive-icon;
+    font: normal normal normal 14px/1 exclusive-icon, sans-serif;
     font-size: inherit;
     text-rendering: auto;
 	line-height: 1;
@@ -23,7 +23,7 @@
 }
 
 [data-icon]:before {
-  font-family: "exclusive-icon" !important;
+  font-family: "exclusive-icon", sans-serif  !important;
   content: attr(data-icon);
   font-style: normal !important;
   font-weight: normal !important;
@@ -37,7 +37,7 @@
 
 [class^="ei-"]:before,
 [class*=" ei-"]:before {
-  font-family: "exclusive-icon" !important;
+  font-family: "exclusive-icon", sans-serif !important;
   font-style: normal !important;
   font-weight: normal !important;
   font-variant: normal !important;
