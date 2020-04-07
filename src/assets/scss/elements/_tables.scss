@@ -53,7 +53,7 @@
 		> tr {
 
 			&:hover {
-				background-color: $default-gray;
+				background-color: lighten($default-primary, 45%);
 			}
 		}
 	}
