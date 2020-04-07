@@ -1,189 +1,50 @@
-<app-ui-title [description]="header.description"
-              [title]="header.title"></app-ui-title>
+<div class="container-fluid">
+    <app-ui-title [description]="company.category.name"
+                  [title]="company.name"></app-ui-title>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card" id="ask-1">
+                    <div class="card-block">
+                        <h1><i class="fa fa-building-o text-primary font-size-30 mrg-right-15"></i>Sucursales</h1>
 
-
-<div class="row">
-  <div class="col-12 d-sm-block d-lg-none">
-    <div class="card bg-secondary m-4 m-sm-5 m-md-5" >
-      <div class="card-body">
-        <h5 class="card-title text-white">{{company.name}}</h5>
-        <p class="card-text text-white">{{company.category.description}}</p>
-      </div>
-      <div class="card-footer text-center">
-        <a (click)="openModal('info-company')" class="btn btn-primary text-white">Editar Informacion</a>
-        <a (click)="openModal('info-branch')" class="btn btn-info text-white ml-3">Agregar</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row"> <!--Div contenedor de ambos lados-->
-  <div class="col-12"><h2 class="ml-5">Sucursales</h2></div>
-  <div class="col-12 col-lg-8 col-lx-8"> <!--Inicio de div sucursales-->
-    <div class="d-flex justify-content-center flex-wrap">
-      <div *ngFor="let branch of branches" class="card card-branch bg-light">
-        <div class="card-header">{{branch.name}}</div>
-        <div class="card-body">
-          <h5 class="card-title">{{branch.address}}</h5>
-          <p class="card-text">{{branch.department}}, {{branch.city}}</p>
+                      <div class="table-overflow">
+                        <table class="table table-lg table-hover" datatable [dtOptions]="dtOptions">
+                          <thead>
+                          <tr>
+                            <th>Nombre de Sucursal</th>
+                            <th>Departamento</th>
+                            <th>Municipio</th>
+                            <th>Telefono</th>
+                            <th>Estatus</th>
+                            <th></th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor="let branch of branches">
+                            <td>
+                              {{branch.name}}
+                            </td>
+                            <td>
+                              {{branch.department}}
+                            </td>
+                            <td>
+                              {{branch.city}}
+                            </td>
+                            <td>
+                              {{branch.phone}}
+                            </td>
+                            <td>
+                              {{branch.status}}
+                            </td>
+                            <td>
+                              <button class="btn btn-primary btn-block">Editar</button>
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card-footer text-center">
-          <button (click)="openModal('info-branch')" class="btn btn-primary">Editar</button>
-        </div>
-      </div>
-    </div>
-  </div><!--Fin de div sucursales-->
-
-  <!--Inicio de div Descripcion Empresa-->
-  <div class="col-lg-4 d-none d-lg-block col-xl-4" >
-    <div class="card bg-secondary" >
-      <img alt="{{company.name}}" class="card-img-top" src="./assets/images/categories/{{company.category.image}}">
-      <div class="card-body">
-        <h5 class="card-title text-white">{{company.name}}</h5>
-        <p class="card-text text-white">{{company.category.description}}</p>
-      </div>
-      <div class="card-footer text-center">
-        <a (click)="openModal('info-company')" class="btn btn-primary text-white">Editar Informacion</a>
-        <a (click)="openModal('info-branch')" class="btn btn-info text-white ml-3">Agregar</a>
-      </div>
-    </div>
-  </div>
-  <!--Inicio de div sucursales-->
-</div>
-
-
-<jw-modal id="info-company">
-  <h1>Informacion de la Empresa</h1>
-  <form (ngSubmit)="submitUpdateInfoCompany()" [formGroup]="infoCompanyForm" class="mt-3" id="infoCompanyForm">
-    <div class="form-group">
-      <label class="text-primary" for="name">Nombre de Empresa<small
-        *ngIf="this.infoCompanyForm.controls.name.invalid && (this.infoCompanyForm.controls.name.dirty || this.infoCompanyForm.controls.name.touched)"
-        class="ml-5 text-danger">* Requerido</small></label>
-      <input
-        [ngClass]="this.infoCompanyForm.controls.name.invalid && (this.infoCompanyForm.controls.name.dirty || this.infoCompanyForm.controls.name.touched)? 'border-danger' : ''"
-        class="form-control border-primary"
-        formControlName="name" id="name"
-        type="text">
-    </div>
-    <div class="form-row">
-      <div class="form-group col-6">
-        <label class="text-primary" for="contactName">Contacto Principal<small
-          *ngIf="this.infoCompanyForm.controls.contactName.invalid && (this.infoCompanyForm.controls.contactName.dirty || this.infoCompanyForm.controls.contactName.touched)"
-          class="ml-5 text-danger">* Requerido</small></label>
-        <input
-          [ngClass]="this.infoCompanyForm.controls.contactName.invalid && (this.infoCompanyForm.controls.contactName.dirty || this.infoCompanyForm.controls.contactName.touched)? 'border-danger' : ''"
-          class="form-control border-primary"
-          formControlName="contactName" id="contactName"
-          type="text">
-      </div>
-      <div class="form-group col-6">
-        <label class="text-primary" for="email">Correo Electronico <small
-          *ngIf="this.infoCompanyForm.controls.email.invalid && (this.infoCompanyForm.controls.email.dirty || this.infoCompanyForm.controls.email.touched)"
-          class="ml-5 text-danger">* Requerido</small></label>
-        <input
-          [ngClass]="this.infoCompanyForm.controls.email.invalid && (this.infoCompanyForm.controls.email.dirty || this.infoCompanyForm.controls.email.touched)? 'border-danger' : ''"
-          aria-describedby="emailHelp"
-          class="form-control border-primary"
-          formControlName="email" id="email"
-          placeholder="cuenta@dominio.com"
-          type="email">
-        <small class="form-text text-muted" id="emailHelp">Nunca compartiremos tu correo electronico con
-          otros.</small>
-      </div>
-    </div>
-    <p class="text-danger text-center font-weight-bold mt-3">* Todos los campos son requeridos.</p>
-    <div class="row mt-4">
-      <div class="col-6">
-        <button class="btn btn-primary btn-block" type="submit">Actualizar</button>
-      </div>
-      <div class="col-3">
-        <button class="btn btn-warning btn-block" type="reset">Limpiar</button>
-      </div>
-      <div class="col-3">
-        <button (click)="closeModalInfoCompany('info-company')" class="btn btn-danger btn-block" type="button">
-          Cancelar
-        </button>
-      </div>
-    </div>
-  </form>
-</jw-modal>
-
-<jw-modal id="info-branch">
-  <h1>Informacion de la Sucursal</h1>
-  <form (ngSubmit)="submitUpdateInfoBranch()" [formGroup]="infoBranchForm" class="mt-3" id="infoBranchForm">
-    <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12">
-        <label class="text-primary" for="name">Nombre de Sucursal<small
-          *ngIf="this.infoBranchForm.controls.name.invalid && (this.infoBranchForm.controls.name.dirty || this.infoBranchForm.controls.name.touched)"
-          class="ml-5 text-danger">* Requerido</small></label>
-        <input
-          [ngClass]="this.infoBranchForm.controls.name.invalid && (this.infoBranchForm.controls.name.dirty || this.infoBranchForm.controls.name.touched)? 'border-danger' : ''"
-          class="form-control border-primary"
-          formControlName="name" id="name"
-          type="text">
-      </div>
-      <div class="col-lg-12 col-md-12 col-sm-12">
-        <label class="text-primary" for="address">Direccion<small
-          *ngIf="this.infoBranchForm.controls.address.invalid && (this.infoBranchForm.controls.address.dirty || this.infoBranchForm.controls.address.touched)"
-          class="ml-5 text-danger">* Requerido</small></label>
-        <input
-          [ngClass]="this.infoBranchForm.controls.address.invalid && (this.infoBranchForm.controls.address.dirty || this.infoBranchForm.controls.address.touched)? 'border-danger' : ''"
-          class="form-control border-primary"
-          formControlName="address" id="address"
-          type="text">
-      </div>
-      <div class="col-lg-6 col-md-12 col-sm-12">
-        <label class="text-primary" for="department">Departamento<small
-          *ngIf="this.infoBranchForm.controls.department.invalid && (this.infoBranchForm.controls.department.dirty || this.infoBranchForm.controls.department.touched)"
-          class="ml-5 text-danger">* Requerido</small></label>
-        <input
-          [ngClass]="this.infoBranchForm.controls.department.invalid && (this.infoBranchForm.controls.department.dirty || this.infoBranchForm.controls.department.touched)? 'border-danger' : ''"
-          class="form-control border-primary"
-          formControlName="department" id="department"
-          type="text">
-      </div>
-      <div class="col-lg-6 col-md-12 col-sm-12">
-        <label class="text-primary" for="city">Ciudad o Municipio<small
-          *ngIf="this.infoBranchForm.controls.city.invalid && (this.infoBranchForm.controls.city.dirty || this.infoBranchForm.controls.city.touched)"
-          class="ml-5 text-danger">* Requerido</small></label>
-        <input
-          [ngClass]="this.infoBranchForm.controls.city.invalid && (this.infoBranchForm.controls.city.dirty || this.infoBranchForm.controls.city.touched)? 'border-danger' : ''"
-          class="form-control border-primary"
-          formControlName="city" id="city"
-          type="text">
-      </div>
-      <div class="col-lg-6 col-md-12 col-sm-12">
-        <label class="text-primary" for="phone">Telefono<small
-          *ngIf="this.infoBranchForm.controls.phone.invalid && (this.infoBranchForm.controls.phone.dirty || this.infoBranchForm.controls.phone.touched)"
-          class="ml-5 text-danger">* Verifique el dato</small></label>
-        <input
-          [ngClass]="this.infoBranchForm.controls.phone.invalid && (this.infoBranchForm.controls.phone.dirty || this.infoBranchForm.controls.phone.touched)? 'border-danger' : ''"
-          class="form-control border-primary"
-          formControlName="phone" id="phone"
-          type="text">
-      </div>
-      <div class="col-lg-6 col-md-12 col-sm-12">
-        <label class="text-primary" for="queue">Nombre de Cola<small
-          *ngIf="this.infoBranchForm.controls.queue.invalid && (this.infoBranchForm.controls.queue.dirty || this.infoBranchForm.controls.queue.touched)"
-          class="ml-5 text-danger">* Verifique el dato</small></label>
-        <input
-          [ngClass]="this.infoBranchForm.controls.queue.invalid && (this.infoBranchForm.controls.queue.dirty || this.infoBranchForm.controls.queue.touched)? 'border-danger' : ''"
-          class="form-control border-primary"
-          formControlName="queue" id="queue"
-          type="text">
-      </div>
-    </div>
-    <div class="row mt-4">
-      <div class="col-lg-6 col-md-6 col-sm-12">
-        <button class="btn btn-primary btn-block" type="submit">Actualizar</button>
-      </div>
-      <div class="col-lg-3 col-md-3 col-sm-12">
-        <button class="btn btn-warning btn-block" type="reset">Limpiar</button>
-      </div>
-      <div class="col-lg-3 col-md-3 col-sm-12">
-        <button (click)="closeModalInfoBranch('info-branch')" class="btn btn-danger btn-block" type="button">Cancelar
-        </button>
-      </div>
-    </div>
-  </form>
-</jw-modal>

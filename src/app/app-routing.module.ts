@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {MainLayoutComponent, SimpleLayoutComponent} from './containers';
+import {CommonLayoutComponent, MainLayoutComponent, SimpleLayoutComponent} from './containers';
 
 
 const routes: Routes = [
@@ -21,17 +21,17 @@ const routes: Routes = [
   },
   {
     path: 'category',
-    component: MainLayoutComponent,
+    component: CommonLayoutComponent,
     loadChildren: () => import('./modules/categories/categories.module').then(m => m.CategoriesModule)
   },
   {
     path: 'company',
-    component: MainLayoutComponent,
+    component: CommonLayoutComponent,
     loadChildren: () => import('./modules/companies/companies.module').then(m => m.CompaniesModule)
   },
   {
     path: 'dashboard',
-    component: MainLayoutComponent,
+    component: CommonLayoutComponent,
     children: [
       {
         path: '',
@@ -41,7 +41,7 @@ const routes: Routes = [
   },
   {
     path: 'maintenance',
-    component: MainLayoutComponent,
+    component: CommonLayoutComponent,
     children: []
   },
   {

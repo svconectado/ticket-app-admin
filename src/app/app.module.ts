@@ -4,14 +4,17 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MainLayoutComponent, SimpleLayoutComponent} from './containers';
+import {MainLayoutComponent, SimpleLayoutComponent, CommonLayoutComponent} from './containers';
 
-import { ToastrModule } from 'ngx-toastr';
+import {ToastrModule} from 'ngx-toastr';
+import {SharedModule} from './modules/shared/shared.module';
+import {TemplateModule} from './modules/template/template.module';
 
 
 const LAYOUTS = [
   SimpleLayoutComponent,
-  MainLayoutComponent
+  MainLayoutComponent,
+  CommonLayoutComponent
 ];
 
 @NgModule({
@@ -22,7 +25,8 @@ const LAYOUTS = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
+    SharedModule,
+    TemplateModule,
     ToastrModule.forRoot({
       timeOut: 10000,
       positionClass: 'toast-top-center',
