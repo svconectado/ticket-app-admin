@@ -12,17 +12,17 @@
                         <table class="table table-lg table-hover" aria-describedby="Listado de sucursales disponibles" datatable [dtOptions]="dtOptions">
                           <thead>
                           <tr>
-                            <th scope="name">Nombre de Sucursal</th>
-                            <th scope="department">Departamento</th>
-                            <th scope="city">Municipio</th>
-                            <th scope="phone">Telefono</th>
-                            <th scope="status">Estatus</th>
-                            <th scope="col"></th>
+                            <th id="name" scope="col">Nombre de Sucursal</th>
+                            <th id="department" scope="col">Departamento</th>
+                            <th id="city" scope="col">Municipio</th>
+                            <th id="phone" scope="col">Telefono</th>
+                            <th id="status" scope="col">Estatus</th>
+                            <th id="action" scope="col"></th>
                           </tr>
                           </thead>
                           <tbody>
                           <tr *ngFor="let branch of branches">
-                            <td headers="name">
+                            <td id="{{branch.name}}" headers="name">
                               {{branch.name}}
                             </td>
                             <td headers="department">
@@ -37,7 +37,7 @@
                             <td headers="status">
                               {{branch.status}}
                             </td>
-                            <td>
+                            <td headers="action">
                               <button class="btn btn-primary btn-block">Editar</button>
                             </td>
                           </tr>
