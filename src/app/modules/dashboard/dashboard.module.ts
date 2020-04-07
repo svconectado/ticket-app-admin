@@ -4,7 +4,7 @@ import {WelcomeComponent} from './welcome/welcome.component';
 import {RouterModule, Routes} from '@angular/router';
 import {UiModule} from '../ui/ui.module';
 
-const Routes: Routes = [
+const router: Routes = [
   {
     path: 'welcome',
     component: WelcomeComponent
@@ -16,7 +16,7 @@ const Routes: Routes = [
   declarations: [WelcomeComponent],
     imports: [
         CommonModule,
-        RouterModule.forChild(Routes),
+        RouterModule.forChild(router),
         UiModule
     ]
 })
