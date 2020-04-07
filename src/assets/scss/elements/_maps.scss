@@ -9,7 +9,7 @@
             min-height: calc(100vh - #{$header-height});
         }
 
-        ngui-map {
+        .ngui-map {
             min-height: calc(100vh - #{$header-height}) !important;
         }
     } 
