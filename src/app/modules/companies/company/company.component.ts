@@ -4,7 +4,7 @@ import {FormBuilder} from '@angular/forms';
 @Component({
   selector: 'app-company',
   templateUrl: './company.component.html',
-  styleUrls: ['./company.component.scss']
+  styleUrls: []
 })
 export class CompanyComponent implements OnInit {
 
