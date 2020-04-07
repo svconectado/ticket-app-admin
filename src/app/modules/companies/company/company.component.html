@@ -6,35 +6,35 @@
             <div class="col-12">
                 <div class="card" id="ask-1">
                     <div class="card-block">
-                        <h1><i class="fa fa-building-o text-primary font-size-30 mrg-right-15"></i>Sucursales</h1>
+                        <h1><em class="fa fa-building-o text-primary font-size-30 mrg-right-15"></em>Sucursales</h1>
 
                       <div class="table-overflow">
-                        <table class="table table-lg table-hover" datatable [dtOptions]="dtOptions">
+                        <table class="table table-lg table-hover" aria-describedby="Listado de sucursales disponibles" datatable [dtOptions]="dtOptions">
                           <thead>
                           <tr>
-                            <th>Nombre de Sucursal</th>
-                            <th>Departamento</th>
-                            <th>Municipio</th>
-                            <th>Telefono</th>
-                            <th>Estatus</th>
-                            <th></th>
+                            <th scope="name">Nombre de Sucursal</th>
+                            <th scope="department">Departamento</th>
+                            <th scope="city">Municipio</th>
+                            <th scope="phone">Telefono</th>
+                            <th scope="status">Estatus</th>
+                            <th scope="col"></th>
                           </tr>
                           </thead>
                           <tbody>
                           <tr *ngFor="let branch of branches">
-                            <td>
+                            <td headers="name">
                               {{branch.name}}
                             </td>
-                            <td>
+                            <td headers="department">
                               {{branch.department}}
                             </td>
-                            <td>
+                            <td headers="city">
                               {{branch.city}}
                             </td>
-                            <td>
+                            <td headers="phone">
                               {{branch.phone}}
                             </td>
-                            <td>
+                            <td headers="status">
                               {{branch.status}}
                             </td>
                             <td>
