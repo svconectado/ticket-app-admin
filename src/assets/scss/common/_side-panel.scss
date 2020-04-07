@@ -14,7 +14,7 @@
 		background-color: $default-white;
 		width: 300px;
 		border-left: 1px solid $border-color;
-		margin: 0px;
+		margin: 0;
 		overflow: hidden;
 		z-index: 1030;
 		@include transform(translateX(300px));	
@@ -36,14 +36,14 @@
 					&.active {
 						color: $default-dark;
 						background-color: transparent;
-						border: 0px;
+						border: 0;
 						border-bottom-color: transparent;
 					
 						&:hover,
 						&:focus {
 							color: $default-dark;
 							background-color: transparent;
-							border: 0px;
+							border: 0;
 							border-bottom-color: transparent;
 						}
 					}
@@ -51,17 +51,17 @@
 				
 				>a {
 					margin-right: 2px;
-					line-height: 1.42857143;
-					border: 0px;
+					// line-height: 1.42857143;
+					border: 0;
 					border-radius: 4px 4px 0 0;
 					color: $default-text-color;
-					padding:0px 20px;
+					padding:0 20px;
 					line-height: $header-height;
 					min-height: $header-height;
 					font-weight: bold;
 
 					@include screen-mobile {
-						padding:0px 15px;
+						padding:0 15px;
 					}	
 					
 					&:hover, 
@@ -75,13 +75,13 @@
 			.panel-close {
 				position: absolute;
 			    right: 0;
-			    top: 0px;
+			    top: 0;
 			    line-height: $header-height;
 				border-left: 1px solid $border-color;
 
 				>a {
 					color: $default-text-color;
-					padding: 0px 20px;
+					padding: 0 20px;
 					display: block;
 
 					&:hover, 

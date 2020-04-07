@@ -263,7 +263,7 @@ blockquote {
 	position: relative;
 	
 	&:before {
-		font-family: 'themify';
+		font-family: 'themify', sans-serif;
 		content: "\e67f";
 		position: absolute;
 		left: 0px;
