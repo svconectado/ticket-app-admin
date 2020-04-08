@@ -1,27 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CompanyComponent } from './company/company.component';
+import { BranchComponent } from './branch/branch.component';
+import { Routes, RouterModule } from '@angular/router';
 import { UiModule } from '../ui/ui.module';
-import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DataTablesModule } from 'angular-datatables';
 
 const ROUTES: Routes = [
   {
     path: '',
-    component: CompanyComponent
+    component: BranchComponent
   }
 ];
 
 @NgModule({
-  declarations: [CompanyComponent],
+  declarations: [BranchComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(ROUTES),
-    UiModule,
     FormsModule,
     ReactiveFormsModule,
-    DataTablesModule
+    UiModule,
+    RouterModule.forChild(ROUTES)
   ]
 })
-export class CompaniesModule {}
+export class BranchesModule {}
