@@ -130,6 +130,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ticket-admin"
+    }
+  },
+  "defaultProject": "ticket-admin",
+  "cli": {
+    "analytics": false
+  }
 }

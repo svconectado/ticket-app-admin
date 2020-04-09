@@ -1,0 +1,242 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-9">
+      <app-ui-title
+        [description]="company.category.name"
+        [title]="company.name"
+      ></app-ui-title>
+    </div>
+    <div class="col-md-3">
+      <button routerLink="/company" class="btn btn-danger float-right">
+        Regresar
+      </button>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card" id="ask-1">
+          <div class="card-block">
+            <h1>
+              <em
+                class="fa fa-building-o text-primary font-size-30 mrg-right-15"
+              ></em
+              >Nueva Sucursal
+            </h1>
+
+            <!-- new brach form -->
+            <form
+              (ngSubmit)="submit()"
+              [formGroup]="newBranchForm"
+              class="mt-5"
+            >
+              <div class="form-group">
+                <label class="text-primary" for="name"
+                  >Nombre
+                  <small
+                    *ngIf="
+                      this.newBranchForm.controls.name.invalid &&
+                      (this.newBranchForm.controls.name.dirty ||
+                        this.newBranchForm.controls.name.touched)
+                    "
+                    class="ml-5 text-danger"
+                    >* Requerido</small
+                  ></label
+                >
+                <input
+                  [ngClass]="
+                    this.newBranchForm.controls.name.invalid &&
+                    (this.newBranchForm.controls.name.dirty ||
+                      this.newBranchForm.controls.name.touched)
+                      ? 'border-danger'
+                      : ''
+                  "
+                  class="form-control border-primary"
+                  formControlName="name"
+                  id="name"
+                  placeholder="Nombre de la nueva sucursal"
+                  type="text"
+                />
+              </div>
+              <div class="form-group">
+                <label class="text-primary" for="address"
+                  >Dirección
+                  <small
+                    *ngIf="
+                      this.newBranchForm.controls.address.invalid &&
+                      (this.newBranchForm.controls.address.dirty ||
+                        this.newBranchForm.controls.address.touched)
+                    "
+                    class="ml-5 text-danger"
+                    >* Requerido</small
+                  ></label
+                >
+                <input
+                  [ngClass]="
+                    this.newBranchForm.controls.address.invalid &&
+                    (this.newBranchForm.controls.address.dirty ||
+                      this.newBranchForm.controls.address.touched)
+                      ? 'border-danger'
+                      : ''
+                  "
+                  class="form-control border-primary"
+                  formControlName="address"
+                  id="address"
+                  placeholder="Dirección física"
+                  type="text"
+                />
+              </div>
+
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="text-primary" for="department"
+                      >Departamento
+                      <small
+                        *ngIf="
+                          this.newBranchForm.controls.department.invalid &&
+                          (this.newBranchForm.controls.department.dirty ||
+                            this.newBranchForm.controls.department.touched)
+                        "
+                        class="ml-5 text-danger"
+                        >* Requerido</small
+                      ></label
+                    >
+                    <select
+                      id="department"
+                      formControlName="department"
+                      class="custom-select form-control border-primary"
+                      [ngClass]="
+                        this.newBranchForm.controls.department.invalid &&
+                        (this.newBranchForm.controls.department.dirty ||
+                          this.newBranchForm.controls.department.touched)
+                          ? 'border-danger'
+                          : ''
+                      "
+                    >
+                      <option
+                        *ngFor="let department of departments"
+                        value="{{ department }}"
+                        >{{ department }}</option
+                      >
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="text-primary" for="city"
+                      >Ciudad
+                      <small
+                        *ngIf="
+                          this.newBranchForm.controls.city.invalid &&
+                          (this.newBranchForm.controls.city.dirty ||
+                            this.newBranchForm.controls.city.touched)
+                        "
+                        class="ml-5 text-danger"
+                        >* Requerido</small
+                      ></label
+                    >
+                    <select
+                      id="city"
+                      formControlName="city"
+                      class="custom-select form-control border-primary"
+                      [ngClass]="
+                        this.newBranchForm.controls.city.invalid &&
+                        (this.newBranchForm.controls.city.dirty ||
+                          this.newBranchForm.controls.city.touched)
+                          ? 'border-danger'
+                          : ''
+                      "
+                    >
+                      <option *ngFor="let city of cities" value="{{ city }}">{{
+                        city
+                      }}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="text-primary" for="phone"
+                      >Teléfono
+                      <small
+                        *ngIf="
+                          this.newBranchForm.controls.phone.errors?.required &&
+                          (this.newBranchForm.controls.phone.dirty ||
+                            this.newBranchForm.controls.phone.touched)
+                        "
+                        class="ml-5 text-danger"
+                        >* Requerido</small
+                      >
+                      <small
+                        *ngIf="
+                          this.newBranchForm.controls.phone.errors?.pattern &&
+                          (this.newBranchForm.controls.phone.dirty ||
+                            this.newBranchForm.controls.phone.touched)
+                        "
+                        class="ml-5 text-danger"
+                        >* Ingresa un teléfono válido</small
+                      >
+                    </label>
+                    <input
+                      [ngClass]="
+                        this.newBranchForm.controls.phone.invalid &&
+                        (this.newBranchForm.controls.phone.dirty ||
+                          this.newBranchForm.controls.phone.touched)
+                          ? 'border-danger'
+                          : ''
+                      "
+                      class="form-control border-primary"
+                      formControlName="phone"
+                      id="phone"
+                      type="tel"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="text-primary" for="status"
+                      >Estado
+                      <small
+                        *ngIf="
+                          this.newBranchForm.controls.status.invalid &&
+                          (this.newBranchForm.controls.status.dirty ||
+                            this.newBranchForm.controls.status.touched)
+                        "
+                        class="ml-5 text-danger"
+                        >* Requerido</small
+                      ></label
+                    >
+                    <select
+                      id="status"
+                      formControlName="status"
+                      class="custom-select form-control border-primary"
+                      [ngClass]="
+                        this.newBranchForm.controls.status.invalid &&
+                        (this.newBranchForm.controls.status.dirty ||
+                          this.newBranchForm.controls.status.touched)
+                          ? 'border-danger'
+                          : ''
+                      "
+                    >
+                      <option value="1">Activo</option>
+                      <option value="0">Inactivo</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                [disabled]="newBranchForm.invalid"
+                class="btn btn-primary btn-block mt-5"
+                type="submit"
+              >
+                Crear nueva sucursal
+              </button>
+            </form>
+            <!-- new brach form -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

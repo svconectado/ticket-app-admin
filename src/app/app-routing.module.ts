@@ -1,7 +1,6 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {CommonLayoutComponent, SimpleLayoutComponent} from './containers';
-
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { CommonLayoutComponent, SimpleLayoutComponent } from './containers';
 
 const routes: Routes = [
   {
@@ -10,24 +9,40 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)
+        loadChildren: () =>
+          import('./modules/auth/auth.module').then((m) => m.AuthModule)
       }
     ]
   },
   {
     path: 'register',
     component: SimpleLayoutComponent,
-    loadChildren: () => import('./modules/register-company/register-company.module').then(m => m.RegisterCompanyModule)
+    loadChildren: () =>
+      import('./modules/register-company/register-company.module').then(
+        (m) => m.RegisterCompanyModule
+      )
   },
   {
     path: 'category',
     component: CommonLayoutComponent,
-    loadChildren: () => import('./modules/categories/categories.module').then(m => m.CategoriesModule)
+    loadChildren: () =>
+      import('./modules/categories/categories.module').then(
+        (m) => m.CategoriesModule
+      )
   },
   {
     path: 'company',
     component: CommonLayoutComponent,
-    loadChildren: () => import('./modules/companies/companies.module').then(m => m.CompaniesModule)
+    loadChildren: () =>
+      import('./modules/companies/companies.module').then(
+        (m) => m.CompaniesModule
+      )
+  },
+  {
+    path: 'company/new-branch',
+    component: CommonLayoutComponent,
+    loadChildren: () =>
+      import('./modules/branches/branches.module').then((m) => m.BranchesModule)
   },
   {
     path: 'dashboard',
@@ -35,7 +50,10 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule)
+        loadChildren: () =>
+          import('./modules/dashboard/dashboard.module').then(
+            (m) => m.DashboardModule
+          )
       }
     ]
   },
@@ -48,12 +66,11 @@ const routes: Routes = [
     path: '',
     redirectTo: '/auth/login',
     pathMatch: 'full'
-  },
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}
