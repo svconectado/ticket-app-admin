@@ -1,13 +1,14 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-12 col-md-9">
       <app-ui-title
+        class="ui-title"
         [description]="company.category.name"
         [title]="company.name"
       ></app-ui-title>
     </div>
-    <div class="col-md-3">
-      <button routerLink="/company" class="btn btn-danger float-right">
+    <div class="col-12 col-md-3">
+      <button routerLink="/company" class="btn btn-danger btn-title">
         Regresar
       </button>
     </div>
