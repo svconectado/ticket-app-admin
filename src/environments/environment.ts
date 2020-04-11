@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  // urlApi: 'http://18.216.34.87:8080/ticketapp',
-  urlApi: 'http://localhost:3000'
+  urlApi: 'http://18.216.34.87:8080/ticketapp',
 };
 
 /*
