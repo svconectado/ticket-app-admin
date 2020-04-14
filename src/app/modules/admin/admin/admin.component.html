@@ -1,0 +1,72 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-md-9">
+      <app-ui-title [description]="description" [title]="title"></app-ui-title>
+    </div>
+    <div class="col-12 col-md-3">
+      <button routerLink="/company/new-branch" class="btn btn-info btn-title">
+        Nueva empresa
+      </button>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card" id="ask-1">
+          <div class="card-block">
+            <h1>
+              <em
+                class="fa fa-building-o text-primary font-size-30 mrg-right-15"
+              ></em
+              >Empresas
+            </h1>
+
+            <div class="table-overflow">
+              <table
+                class="table table-lg table-hover"
+                aria-describedby="Listado de sucursales disponibles"
+                datatable
+                [dtOptions]="dtOptions"
+              >
+                <thead>
+                  <tr>
+                    <th id="name" scope="col">Nombre</th>
+                    <th id="department" scope="col">Departamento</th>
+                    <th id="city" scope="col">Municipio</th>
+                    <th id="phone" scope="col">Telefono</th>
+                    <th id="status" scope="col">Estatus</th>
+                    <th id="action" scope="col">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let company of companies">
+                    <td id="{{ company.name }}" headers="name">
+                      {{ company.name }}
+                    </td>
+                    <td headers="department">
+                      {{ company.department }}
+                    </td>
+                    <td headers="city">
+                      {{ company.city }}
+                    </td>
+                    <td headers="phone">
+                      {{ company.phone }}
+                    </td>
+                    <td headers="status">
+                      {{ company.status }}
+                    </td>
+                    <td headers="action">
+                      <button class="btn btn-primary btn-block">
+                        Administrar
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

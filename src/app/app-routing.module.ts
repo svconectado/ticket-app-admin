@@ -31,6 +31,12 @@ const routes: Routes = [
       )
   },
   {
+    path: 'admin',
+    component: CommonLayoutComponent,
+    loadChildren: () =>
+      import('./modules/admin/admin.module').then((m) => m.AdminModule)
+  },
+  {
     path: 'company',
     component: CommonLayoutComponent,
     loadChildren: () =>
