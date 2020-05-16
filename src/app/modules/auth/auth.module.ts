@@ -1,10 +1,12 @@
 import {NgModule} from '@angular/core';
-import {LoginComponent} from './login/login.component';
+import {LoginComponent} from './components/login/login.component';
 import {RouterModule, Routes} from '@angular/router';
-import {ForgetPasswordComponent} from './forget/forget-password.component';
+import {ForgetPasswordComponent} from './components/forget/forget-password.component';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {AuthLayoutComponent} from './auth-layout/auth-layout.component';
+import {AuthLayoutComponent} from './template/auth-layout/auth-layout.component';
+import {LoginService} from './services/login.service';
+import {HttpClientModule} from '@angular/common/http';
 
 
 const Router: Routes = [
@@ -33,13 +35,17 @@ const Router: Routes = [
     RouterModule.forChild(Router),
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   exports: [],
   declarations: [
     AuthLayoutComponent,
     LoginComponent,
     ForgetPasswordComponent
+  ],
+  providers: [
+    LoginService
   ]
 })
 export class AuthModule {

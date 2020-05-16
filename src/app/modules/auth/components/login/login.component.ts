@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
+import {LoginService} from '../../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router, private toastr: ToastrService) {
+  constructor(private fb: FormBuilder, private router: Router, private toastr: ToastrService, private loginService: LoginService) {
   }
 
   ngOnInit(): void {
@@ -21,11 +22,16 @@ export class LoginComponent implements OnInit {
 
   public submit() {
     if (this.loginForm.valid) {
-      this.router.navigateByUrl('/company').then(() => {
-        this.toastr.success('Le damos la bienvenida nuevamente.');
+      this.loginService.login(this.loginForm.controls.email.value, this.loginForm.controls.password.value).subscribe((response) => {
+        console.log(JSON.stringify(response));
+        this.router.navigateByUrl('/company').then(() => {
+        });
+      }, error => {
+        console.log(JSON.stringify(error));
+        // this.toastr.error('Todos los campos son requeridos.');
       });
     } else {
-      this.toastr.error('Todos los campos son requeridos.');
+      // this.toastr.error('Todos los campos son requeridos.');
     }
   }
 
